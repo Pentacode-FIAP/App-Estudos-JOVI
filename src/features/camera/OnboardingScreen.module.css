@@ -1,0 +1,256 @@
+.screen {
+  background: #0a0914;
+  position: relative;
+  border-radius: var(--shell-r);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'DM Sans', -apple-system, sans-serif;
+}
+
+.screen *,
+.screen *::before,
+.screen *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:where(.screen) button {
+  cursor: pointer;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 50px;
+  padding: 14px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+.time {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Viewfinder Background */
+.viewfinder {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 80% at 50% 30%, #0d0a1e 0%, #05030d 70%);
+  overflow: hidden;
+}
+
+.ruido {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px
+  );
+}
+
+.viewfinder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 130px 281px;
+}
+
+/* Card Overlay */
+.area-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+}
+
+.card {
+  width: 326px;
+  background: #141424;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 24px;
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  box-shadow:
+    0 0 0 1px rgba(107,171,255,0.05),
+    0 24px 60px rgba(0,0,0,0.6),
+    0 2px 8px rgba(107,171,255,0.06) inset;
+}
+
+/* Progress Dots */
+.indicadores {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.22);
+  padding: 0;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.dot-ativo {
+  width: 18px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+/* Icon Ring */
+.circulo-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1b2c52, #0f1b3a);
+  border: 1px solid rgba(107,171,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow:
+    0 0 24px rgba(107,171,255,0.15),
+    0 0 8px rgba(107,171,255,0.1) inset;
+}
+
+.estrela {
+  font-size: 26px;
+  color: #6babff;
+  line-height: 1;
+}
+
+/* Slides */
+.slides {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 120px;
+}
+
+.slide-ativo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.titulo-card {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.desc-card {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.55;
+  margin-bottom: 28px;
+}
+
+/* Buttons */
+.btn-proximo {
+  width: 222px;
+  height: 46px;
+  border-radius: 23px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  padding: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  margin-bottom: 14px;
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.btn-proximo:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+.linha-navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn-anterior {
+  color: rgba(255,255,255,0.55);
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+}
+
+.btn-anterior:hover:not(:disabled) {
+  color: #fff;
+}
+
+.btn-anterior:disabled {
+  color: rgba(255,255,255,0.15);
+  cursor: not-allowed;
+}
+
+.btn-pular {
+  color: rgba(255,255,255,0.28);
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+}
+
+.btn-pular:hover {
+  color: rgba(255,255,255,0.6);
+}

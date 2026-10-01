@@ -1,0 +1,90 @@
+.painel {
+  position: absolute;
+  z-index: 5;
+  left: 16px;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(7, 11, 8, 0.94);
+  border: 1px solid rgba(51, 199, 120, 0.35);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.titulo {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #33c778;
+}
+
+.texto {
+  margin: 0;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: pre-wrap;
+}
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 0;
+}
+
+.aviso {
+  font-size: 13px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(51, 199, 120, 0.25);
+  border-top-color: #33c778;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+.acoes {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.btn-painel {
+  flex: 1;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.btn-painel:hover {
+  background: rgba(51, 199, 120, 0.15);
+  border-color: #33c778;
+  color: #33c778;
+}
